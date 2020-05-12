@@ -42,9 +42,13 @@ class Rental {
     }
 
     int determineFrequentRenterPoints() {
-        int frequentRenterPoints = 1;
         PriceCode priceCode = getMovie().getPriceCode();
         int daysRented = getDaysRented();
+        return calculateFrequentRenterPoints(priceCode, daysRented);
+    }
+
+    private int calculateFrequentRenterPoints(PriceCode priceCode, int daysRented) {
+        int frequentRenterPoints = 1;
         switch (priceCode.getPriceCode()) {
             case Movie.REGULAR:
                 break;
