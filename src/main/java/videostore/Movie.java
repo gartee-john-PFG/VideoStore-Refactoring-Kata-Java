@@ -11,7 +11,7 @@ public class Movie {
 
     public Movie(String title, int priceCode) {
         this.title = title;
-        this.priceCode = new PriceCode(priceCode);
+        this.setPriceCode(priceCode);
     }
 
     public PriceCode getPriceCode() {
@@ -19,7 +19,17 @@ public class Movie {
     }
 
     public void setPriceCode(int arg) {
-        this.priceCode = new PriceCode(arg);
+        switch (arg) {
+            case Movie.REGULAR:
+                this.priceCode = new RegularPriceCode(arg);
+                break;
+            case Movie.NEW_RELEASE:
+                this.priceCode = new NewReleasePriceCode(arg);
+                break;
+            case Movie.CHILDRENS:
+                this.priceCode = new ChildrensPriceCode(arg);
+                break;
+        }
     }
 
     public String getTitle (){
