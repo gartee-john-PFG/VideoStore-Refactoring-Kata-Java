@@ -4,7 +4,7 @@ import java.util.Vector;
 
 class Customer {
     private String name;
-    private Vector rentals = new Vector();
+    private Vector<Rental> rentals = new Vector<Rental>();
 
     public Customer(String name) {
         this.name = name;
@@ -22,9 +22,8 @@ class Customer {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
         String result = "Rental Record for " + getName() + "\n";
-        for (Object element : rentals) {
+        for (Rental rental : rentals) {
             double thisAmount = 0;
-            Rental rental = (Rental) element;
 
             //determine amounts for rental line
             switch (rental.getMovie().getPriceCode()) {
