@@ -36,9 +36,17 @@ class Rental {
     }
 
     int determineFrequentRenterPoints() {
-        if ((getMovie().getPriceCode() == Movie.NEW_RELEASE) &&
-                getDaysRented() > 1)
-            return 2;
-        return 1;
+        int frequentRenterPoints = 1;
+        switch (getMovie().getPriceCode()) {
+            case Movie.REGULAR:
+                break;
+            case Movie.NEW_RELEASE:
+                if (getDaysRented() > 1) {
+                    frequentRenterPoints = 2;
+                }
+            case Movie.CHILDRENS:
+                break;
+        }
+        return frequentRenterPoints;
     }
 }
