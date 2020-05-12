@@ -17,7 +17,8 @@ class Rental {
 
     double determineAmount() {
         double thisAmount = 0;
-        switch (getMovie().getPriceCode()) {
+        PriceCode priceCode = getMovie().getPriceCode();
+        switch (priceCode.getPriceCode()) {
             case Movie.REGULAR:
                 thisAmount += 2;
                 if (getDaysRented() > 2)
@@ -37,7 +38,8 @@ class Rental {
 
     int determineFrequentRenterPoints() {
         int frequentRenterPoints = 1;
-        switch (getMovie().getPriceCode()) {
+        PriceCode priceCode = getMovie().getPriceCode();
+        switch (priceCode.getPriceCode()) {
             case Movie.REGULAR:
                 break;
             case Movie.NEW_RELEASE:
